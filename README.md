@@ -16,7 +16,7 @@ According to the National Institute of Health, pneumonia is an infection of one 
 
 In this project, we have been hired by a medical clinic specializing in treating COVID-19 patients with moderate cases, in order to try to treat the patient before they require a hospitalization. During times of spikes in cases, the providers at the clinic do not have time to review the chest x-rays of every patient that comes in. Our job is to create a model that classifies each patient as either having or not having pneumonia. The patients tagged as having pneumonia will be further investigated by the providers and in some cases, sent directly to the hospital for treatment. Patients with pneumonia are at high-risk for needing a ventilator and need to be monitored closely.
 
-INSERT X-RAY IMAGE
+![xray_example](images/person46_virus_96.jpeg)
 
 ***
 
@@ -24,7 +24,9 @@ INSERT X-RAY IMAGE
 
 The data used to create the model comes from Mendeley Data (Kermany, Daniel; Zhang, Kang; Goldbaum, Michael (2018), “Large Dataset of Labeled Optical Coherence Tomography (OCT) and Chest X-Ray Images”, Mendeley Data, V3, doi: 10.17632/rscbjbr9sj.3) and a subset of the original dataset was downloaded from Kaggle. The data provided was split into train, test and validation sets prior to download, although we did move some of the images from our test set into the validation set to improve performance. There were class imbalances in our train and test sets—the train set had 3,875 pneumonia images and 1,341 normal images, while the test set had 240 pneumonia images and 84 normal images. The validation set had a balanced set of 158 images for each class. The images were resized into the correct pixels for proper input into the models.
 
-INSERT BAR CHARTS
+![train_classes](images/train_classes.png)
+![test_classes](images/test_classes.png)
+![val_classes](images/val_classes.png)
 
 ## Methods
 
@@ -38,11 +40,12 @@ For all of our models, we used Stochastic Gradient Descent (SGD) as the optimize
 
 Using accuracy and loss as the main metrics driving our model decisions, we decided on a CNN model with both dropout and early stopping implemented to combat and overfitting. Our final model has test loss of [ ] and test accuracy of [ ] after [ ] epochs. Compared to training loss and accuracy of [ ], this meant this model had limited overfitting.
 
-INSERT FINAL GRAPHS
+![loss](images/loss_graph.png)
+![acc](images/acc_graph.png)
 
 We also explored the confusion matrix of our final model. This model had a precision score of [ ], recall score of [ ] and F1 score of [ ]. []% of the outcomes were false negatives and []% were false positives.
 
-INSERT CONFUSION MATRIX
+![confusion_matrix](images/conf_matrix.png)
 
 ***
 
@@ -58,8 +61,25 @@ INSERT CONFUSION MATRIX
 
 ## Next Steps
 
-**Transfer Learning.** Transfer learning is [ ]. With additional time and resources, we would like to explore using transfer learning on these datasets to see if we could obtain better results.
+**Transfer Learning.** Transfer learning involves using parts of pretrained networks that were previously trained on large datasets in your own model to achieve better results. With additional time and resources, we would like to explore using transfer learning on these datasets to see if we could obtain better results.
 
 **Using a balance dataset.** As we previously mentioned, there was an imbalance in classes in our train and test set. Next time, we would create our own split of train, test and validation data from the original dataset with a balanced number of pneumonia and non-pneumonia samples, to see if that would improve our results.
 
 **Train each model for longer.** Due to time constraints, we were not able to train all of our models on 100+ epochs. We likely could have reached convergence on some of our models if we were able to train for longer.
+
+***
+
+## For More Information
+
+Please review the detailed analysis in this [Jupyter Notebook](../Pneumonia_Classification_Notebook.ipynb) and this [presentation](../pneumonia_classification_presentation.pdf).
+
+For any additional questions, please contact Samantha Knee at samanthaknee24@gmail.com
+
+
+## Repository Structure
+***
+├── README.md                                          <- The top-level README for reviewers of this project
+├── Pneumonia_Classification_Notebook.ipynb            <- Narrative documentation of data cleaning and modeling in Jupyter notebook
+├── pneumonia_classification_presentation.pdf          <- PDF version of project presentation
+├── data                                               <- Both sourced externally and generated from code
+└── images                                             <- Both sourced externally and generated from code
